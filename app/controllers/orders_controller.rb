@@ -1,15 +1,19 @@
 class OrdersController < ApplicationController
+
+  skip_before_filter :authorize, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
   # GET /orders.json
   def index
     @orders = Order.all
+    @cart = current_cart
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @cart = current_cart
   end
 
   # GET /orders/new
@@ -25,6 +29,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @cart = current_cart
   end
 
   # POST /orders

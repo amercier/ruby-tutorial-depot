@@ -3,6 +3,7 @@ require 'test_helper'
 class OrdersControllerTest < ActionController::TestCase
   setup do
     @order = orders(:one)
+    session[:user_id] = users(:one).id
   end
 
   test "should get index" do
