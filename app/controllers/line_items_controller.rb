@@ -5,20 +5,24 @@ class LineItemsController < ApplicationController
   # GET /line_items.json
   def index
     @line_items = LineItem.all
+    @cart = current_cart
   end
 
   # GET /line_items/1
   # GET /line_items/1.json
   def show
+    @cart = current_cart
   end
 
   # GET /line_items/new
   def new
     @line_item = LineItem.new
+    @cart = current_cart
   end
 
   # GET /line_items/1/edit
   def edit
+    @cart = current_cart
   end
 
   # POST /line_items
